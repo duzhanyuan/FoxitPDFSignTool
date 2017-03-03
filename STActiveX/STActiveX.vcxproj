@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{22605B63-1CD5-487F-86C0-C2696FCC8F35}</ProjectGuid>
+    <RootNamespace>STActiveX</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <Keyword>MFCActiveXProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+    <OutDir>..\Bin\Release</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.ocx</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>.\STActiveX.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName).ocx</OutputFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)STActiveX.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>.\STActiveX.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName).ocx</OutputFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)STActiveX.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>.\STActiveX.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName).ocx</OutputFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)STActiveX.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>.\STActiveX.def</ModuleDefinitionFile>
+      <OutputFile>$(OutDir)$(ProjectName).ocx</OutputFile>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)STActiveX.tlb</TypeLibraryName>
+      <HeaderFileName>$(ProjectName)idl.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="foxitpdfsdkproctrl1.cpp" />
+    <ClCompile Include="SkinEdit.cpp" />
+    <ClCompile Include="STActiveX.cpp" />
+    <ClCompile Include="STActiveXCtrl.cpp" />
+    <ClCompile Include="STActiveXPropPage.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="XPButton.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CDFoxitPDFSDK.h" />
+    <ClInclude Include="CDFoxitPDFSDKEvents.h" />
+    <ClInclude Include="CFindResult.h" />
+    <ClInclude Include="CLink_Dest.h" />
+    <ClInclude Include="CPDFAction.h" />
+    <ClInclude Include="CPDFAnnot.h" />
+    <ClInclude Include="CPDFAnnotReply.h" />
+    <ClInclude Include="CPDFAnnotReplyList.h" />
+    <ClInclude Include="CPDFCharInfo.h" />
+    <ClInclude Include="CPDFDocumentInfo.h" />
+    <ClInclude Include="CPDFForm.h" />
+    <ClInclude Include="CPDFFormField.h" />
+    <ClInclude Include="CPDFormatTool.h" />
+    <ClInclude Include="CPDFOutline.h" />
+    <ClInclude Include="CPDFPageAnnots.h" />
+    <ClInclude Include="CPDFPrinter.h" />
+    <ClInclude Include="CPDFSignatureField.h" />
+    <ClInclude Include="CPDFSignatureMgr.h" />
+    <ClInclude Include="CPDFTextDoc.h" />
+    <ClInclude Include="CPDFTextLink.h" />
+    <ClInclude Include="CPDFTextPage.h" />
+    <ClInclude Include="CPDFTextSearch.h" />
+    <ClInclude Include="CPDFTextSelection.h" />
+    <ClInclude Include="foxitpdfsdkproctrl1.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SkinEdit.h" />
+    <ClInclude Include="STActiveX.h" />
+    <ClInclude Include="STActiveXCtrl.h" />
+    <ClInclude Include="STActiveXPropPage.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="XPButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd0.png" />
+    <None Include="Icon\Digit\sd1.png" />
+    <None Include="Icon\Digit\sd2.png" />
+    <None Include="Icon\Digit\sd3.png" />
+    <None Include="Icon\Digit\sd4.png" />
+    <None Include="Icon\Digit\sd5.png" />
+    <None Include="Icon\Digit\sd6.png" />
+    <None Include="Icon\Digit\sd7.png" />
+    <None Include="Icon\Digit\sd8.png" />
+    <None Include="Icon\Digit\sd9.png" />
+    <None Include="Icon\Digit\ss2.png" />
+    <None Include="Icon\Icon_bmp\01.bmp" />
+    <None Include="Icon\Icon_bmp\01g.bmp" />
+    <None Include="Icon\Icon_bmp\02.bmp" />
+    <None Include="Icon\Icon_bmp\02g.bmp" />
+    <None Include="Icon\Icon_bmp\03.bmp" />
+    <None Include="Icon\Icon_bmp\03g.bmp" />
+    <None Include="Icon\Icon_bmp\04.bmp" />
+    <None Include="Icon\Icon_bmp\04g.bmp" />
+    <None Include="Icon\Icon_bmp\05.bmp" />
+    <None Include="Icon\Icon_bmp\05g.bmp" />
+    <None Include="Icon\Icon_bmp\06.bmp" />
+    <None Include="Icon\Icon_bmp\06g.bmp" />
+    <None Include="Icon\Icon_bmp\07.bmp" />
+    <None Include="Icon\Icon_bmp\07g.bmp" />
+    <None Include="Icon\Icon_bmp\08.bmp" />
+    <None Include="Icon\Icon_bmp\08g.bmp" />
+    <None Include="Icon\Icon_bmp\09.bmp" />
+    <None Include="Icon\Icon_bmp\09g.bmp" />
+    <None Include="Icon\Icon_bmp\10.bmp" />
+    <None Include="Icon\Icon_bmp\10g.bmp" />
+    <None Include="Icon\Icon_bmp\11.bmp" />
+    <None Include="Icon\Icon_bmp\11g.bmp" />
+    <None Include="Icon\Icon_bmp\12.bmp" />
+    <None Include="Icon\Icon_bmp\12g.bmp" />
+    <None Include="Icon\Icon_bmp\13.bmp" />
+    <None Include="Icon\Icon_bmp\13g.bmp" />
+    <None Include="Icon\Icon_bmp\14.bmp" />
+    <None Include="Icon\Icon_bmp\14g.bmp" />
+    <None Include="Icon\Icon_bmp\15.bmp" />
+    <None Include="Icon\Icon_bmp\15g.bmp" />
+    <None Include="Icon\Icon_bmp\16.bmp" />
+    <None Include="Icon\Icon_bmp\16g.bmp" />
+    <None Include="Icon\Icon_bmp\17.bmp" />
+    <None Include="Icon\Icon_bmp\17g.bmp" />
+    <None Include="STActiveX.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="STActiveX.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="STActiveX.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Icon\Digit\ss3.png" />
+    <Image Include="Icon\Digit\ss4.png" />
+    <Image Include="STActiveXCtrl.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _x007B_F53B7748-643C-4A78-8DBC-01A4855D1A10_x007D_="CDFoxitPDFSDK0" RESOURCE_FILE="STActiveX.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

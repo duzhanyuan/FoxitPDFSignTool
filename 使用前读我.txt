@@ -1,0 +1,27 @@
+一、目录结构
+1.bin
+1）bin
+* FoxitPDFSDK_AX_Pro.ocx，ActiveX二进制文件
+* fpdfcjk.bin，中日韩语包，放在ActiveX同级目录即可
+* lang_zh_cn.xml，中文语言包，见demo中的使用方法
+* ocx_install.bat，注册ActiveX bat文件，Vista以上系统，需要以管理员权限执行注册
+* ocx_uninstall.bat，卸载ActiveX bat文件，Vista以上系统，需要以管理员权限执行注册
+
+2）cab，打包制作说明
+Web端使用，可以打包成cab，进行ActiveX安装
+
+3）手册，标准版ActiveX接口说明
+
+2.html_demo
+见：使用前读我.txt说明，重点设置路径，
+
+3.vc_demo
+
+二、重点说明
+1.右键，插入图片
+2.点击图片，右键，删除图片
+3.图片缩放，注意要等比缩放，不然会变形
+4.合成和保存，提供新的接口，保存成新文件
+5.在文档打开时，ActiveX会有文档打开事件，在打开事件中，设置图片参数
+6.工具栏上面的保存，另存，还是默认的保存和另存，未做修改
+7.接口使用及说明，见demo

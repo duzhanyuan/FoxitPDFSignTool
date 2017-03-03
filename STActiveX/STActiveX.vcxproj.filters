@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STActiveX.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STActiveXCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STActiveXPropPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XPButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="foxitpdfsdkproctrl1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinEdit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="STActiveX.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="STActiveXCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="STActiveXPropPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XPButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDFoxitPDFSDK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CDFoxitPDFSDKEvents.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CFindResult.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CLink_Dest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFAction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFAnnot.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFAnnotReply.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFAnnotReplyList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFCharInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFDocumentInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFForm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFFormField.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFormatTool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFOutline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFPageAnnots.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFPrinter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFSignatureField.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFSignatureMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFTextDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFTextLink.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFTextPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFTextSearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPDFTextSelection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="foxitpdfsdkproctrl1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinEdit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="STActiveX.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\01.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\01g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\02.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\02g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\03.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\03g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\04.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\04g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\05.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\05g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\06.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\06g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\07.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\07g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\08.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\08g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\09.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\09g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\10.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\10g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\11.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\11g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\12.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\12g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\13.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\13g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\14.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\14g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\15.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\15g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\16.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\16g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\17.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Icon_bmp\17g.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd0.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd1.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd2.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd3.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd4.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd5.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd6.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd7.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd8.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\sd9.png">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\Digit\ss2.png">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="STActiveX.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="STActiveX.idl">
+      <Filter>源文件</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="STActiveXCtrl.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Icon\Digit\ss3.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Icon\Digit\ss4.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

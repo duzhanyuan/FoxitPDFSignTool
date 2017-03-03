@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{98EE4788-0949-46CD-8EBB-8C2661976C0D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SignatureTool</RootNamespace>
+    <AssemblyName>SignatureTool</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ex\CusAxFoxitPDFSDK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ex\LabelTx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ex\MessageBoxEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ex\MessageBoxEx.Designer.cs">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STLib.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="STLib.Designer.cs">
+      <DependentUpon>STLib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectSafety.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Ex\MessageBoxEx.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STLib.resx">
+      <DependentUpon>STLib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxFoxitPDFSDKProLib">
+      <Guid>{B0B1B6D4-2556-4F48-B324-9A3C989E6296}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="FoxitPDFSDKProLib">
+      <Guid>{B0B1B6D4-2556-4F48-B324-9A3C989E6296}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\sd9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\ss1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\Digit\ss2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\hand.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\msbx_information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon\msbx_warning.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\icon.ico" />
+    <None Include="Icon\msbx_error.png" />
+    <None Include="Icon\Icon_small\20g.png" />
+    <None Include="Icon\Icon_small\19g.png" />
+    <None Include="Icon\Icon_small\18g.png" />
+    <None Include="Icon\Icon_small\17g.png" />
+    <None Include="Icon\Icon_small\16g.png" />
+    <None Include="Icon\Icon_small\15g.png" />
+    <None Include="Icon\Icon_small\14g.png" />
+    <None Include="Icon\Icon_small\13g.png" />
+    <None Include="Icon\Icon_small\12g.png" />
+    <None Include="Icon\Icon_small\11g.png" />
+    <None Include="Icon\Icon_small\10g.png" />
+    <None Include="Icon\Icon_small\09g.png" />
+    <None Include="Icon\Icon_small\08g.png" />
+    <None Include="Icon\Icon_small\07g.png" />
+    <None Include="Icon\Icon_small\06g.png" />
+    <None Include="Icon\Icon_small\05g.png" />
+    <None Include="Icon\Icon_small\04g.png" />
+    <None Include="Icon\Icon_small\03g.png" />
+    <None Include="Icon\Icon_small\02g.png" />
+    <None Include="Icon\Icon_small\01g.png" />
+    <Content Include="Readme.txt" />
+    <None Include="Icon\Icon_small\22.png" />
+    <None Include="Icon\Icon_small\21.png" />
+    <None Include="Icon\Icon_small\20.png" />
+    <None Include="Icon\Icon_small\19.png" />
+    <None Include="Icon\Icon_small\18.png" />
+    <None Include="Icon\Icon_small\17.png" />
+    <None Include="Icon\Icon_small\16.png" />
+    <None Include="Icon\Icon_small\15.png" />
+    <None Include="Icon\Icon_small\14.png" />
+    <None Include="Icon\Icon_small\13.png" />
+    <None Include="Icon\Icon_small\12.png" />
+    <None Include="Icon\Icon_small\11.png" />
+    <None Include="Icon\Icon_small\10.png" />
+    <None Include="Icon\Icon_small\09.png" />
+    <None Include="Icon\Icon_small\08.png" />
+    <None Include="Icon\Icon_small\07.png" />
+    <None Include="Icon\Icon_small\06.png" />
+    <None Include="Icon\Icon_small\05.png" />
+    <None Include="Icon\Icon_small\04.png" />
+    <None Include="Icon\Icon_small\03.png" />
+    <None Include="Icon\Icon_small\02.png" />
+    <None Include="Icon\Icon_small\01.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

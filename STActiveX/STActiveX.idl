@@ -1,0 +1,51 @@
+// STActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(STActiveX.tlb)，该类型库将成为
+// STActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(1F775BC0-FC5A-46E7-95D9-AAE66A25FDD6), version(1.0),
+  control ]
+library STActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CSTActiveXCtrl 的主调度接口
+	[ 
+		uuid(5AC282DB-CB80-4A59-A5C6-23731394D101)	
+	]
+	dispinterface _DSTActiveX
+	{
+		properties:
+		methods:
+			[id(1)] BSTR OpenFile(BSTR pdfPath, BSTR imgPath);
+			[id(2)] BSTR Pass(void);
+	};
+
+	//  CSTActiveXCtrl 的事件调度接口
+
+	[ 
+		uuid(8D2F6C43-AD2F-4E63-90DB-24DCA71909A4)	
+	]
+	dispinterface _DSTActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CSTActiveXCtrl 的类信息
+	[
+		uuid(D3285EC9-5667-4B9B-A989-CA98DD1F8E59)
+	]
+	coclass STActiveX
+	{
+		[default] dispinterface _DSTActiveX;
+		[default, source] dispinterface _DSTActiveXEvents;
+	};
+
+};
