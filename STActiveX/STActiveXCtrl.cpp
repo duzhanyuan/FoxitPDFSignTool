@@ -1,4 +1,4 @@
-// STActiveXCtrl.cpp : CSTActiveXCtrl ActiveX ¿Ø¼şÀàµÄÊµÏÖ¡£
+// STActiveXCtrl.cpp : CSTActiveXCtrl ActiveX æ§ä»¶ç±»çš„å®ç°ã€‚
 
 #include "stdafx.h"
 #include "STActiveX.h"
@@ -6,7 +6,7 @@
 #include "STActiveXPropPage.h"
 #include "afxdialogex.h"
 #include <io.h>			// _access
-#include <GdiPlus.h>	// »æÍ¼
+#include <GdiPlus.h>	// ç»˜å›¾
 //#include <gdiplusflat.h>
 #include <vector>
 
@@ -22,7 +22,7 @@ using namespace Gdiplus;
 
 IMPLEMENT_DYNCREATE(CSTActiveXCtrl, COleControl)
 
-// ÏûÏ¢Ó³Éä
+// æ¶ˆæ¯æ˜ å°„
 
 BEGIN_MESSAGE_MAP(CSTActiveXCtrl, COleControl)
 	ON_OLEVERB(AFX_IDS_VERB_PROPERTIES, OnProperties)
@@ -48,47 +48,47 @@ BEGIN_MESSAGE_MAP(CSTActiveXCtrl, COleControl)
 	ON_BN_CLICKED(IDC_BUTTON17, OnButton17_Click)
 END_MESSAGE_MAP()
 
-// µ÷¶ÈÓ³Éä
+// è°ƒåº¦æ˜ å°„
 
 BEGIN_DISPATCH_MAP(CSTActiveXCtrl, COleControl)
 	DISP_FUNCTION_ID(CSTActiveXCtrl, "OpenFile", dispidOpenFile, OpenFile, VT_BSTR, VTS_BSTR VTS_BSTR)
 	DISP_FUNCTION_ID(CSTActiveXCtrl, "Pass", dispidPass, Pass, VT_BSTR, VTS_NONE)
 END_DISPATCH_MAP()
 
-// ÊÂ¼şÓ³Éä
+// äº‹ä»¶æ˜ å°„
 
 BEGIN_EVENT_MAP(CSTActiveXCtrl, COleControl)
 END_EVENT_MAP()
 
-// ×Ô¶¨ÒåÊÂ¼şÓ³Éä
+// è‡ªå®šä¹‰äº‹ä»¶æ˜ å°„
 
 BEGIN_EVENTSINK_MAP(CSTActiveXCtrl, COleControl)
 	ON_EVENT(CSTActiveXCtrl, IDB_FOXITSDKCTRL1, 59, CSTActiveXCtrl::OnDbClickExFoxitpdfsdkproctrl1, VTS_I4 VTS_I4 VTS_I4 VTS_PBOOL)
 	ON_EVENT(CSTActiveXCtrl, IDB_FOXITSDKCTRL1, 3, CSTActiveXCtrl::OnZoomChangeFoxitpdfsdkproctrl1, VTS_NONE)
 END_EVENTSINK_MAP()
 
-// ÊôĞÔÒ³
+// å±æ€§é¡µ
 
-// TODO: ¸ù¾İĞèÒªÌí¼Ó¸ü¶àÊôĞÔÒ³¡£Çë¼Ç×¡Ôö¼Ó¼ÆÊı!
+// TODO: æ ¹æ®éœ€è¦æ·»åŠ æ›´å¤šå±æ€§é¡µã€‚è¯·è®°ä½å¢åŠ è®¡æ•°!
 BEGIN_PROPPAGEIDS(CSTActiveXCtrl, 1)
 	PROPPAGEID(CSTActiveXPropPage::guid)
 END_PROPPAGEIDS(CSTActiveXCtrl)
 
-// ³õÊ¼»¯Àà¹¤³§ºÍ guid
+// åˆå§‹åŒ–ç±»å·¥å‚å’Œ guid
 
 IMPLEMENT_OLECREATE_EX(CSTActiveXCtrl, "STACTIVEX.STActiveXCtrl.1",
 	0xd3285ec9, 0x5667, 0x4b9b, 0xa9, 0x89, 0xca, 0x98, 0xdd, 0x1f, 0x8e, 0x59)
 
-	// ¼üÈë¿â ID ºÍ°æ±¾
+	// é”®å…¥åº“ ID å’Œç‰ˆæœ¬
 
 	IMPLEMENT_OLETYPELIB(CSTActiveXCtrl, _tlid, _wVerMajor, _wVerMinor)
 
-	// ½Ó¿Ú ID
+	// æ¥å£ ID
 
 	const IID IID_DSTActiveX = { 0x5AC282DB, 0xCB80, 0x4A59, { 0xA5, 0xC6, 0x23, 0x73, 0x13, 0x94, 0xD1, 0x1 } };
 const IID IID_DSTActiveXEvents = { 0x8D2F6C43, 0xAD2F, 0x4E63, { 0x90, 0xDB, 0x24, 0xDC, 0xA7, 0x19, 0x9, 0xA4 } };
 
-// ¿Ø¼şÀàĞÍĞÅÏ¢
+// æ§ä»¶ç±»å‹ä¿¡æ¯
 
 static const DWORD _dwSTActiveXOleMisc =
 OLEMISC_ACTIVATEWHENVISIBLE |
@@ -100,15 +100,15 @@ OLEMISC_RECOMPOSEONRESIZE;
 IMPLEMENT_OLECTLTYPE(CSTActiveXCtrl, IDS_STACTIVEX, _dwSTActiveXOleMisc)
 
 // CSTActiveXCtrl::CSTActiveXCtrlFactory::UpdateRegistry -
-// Ìí¼Ó»òÒÆ³ı CSTActiveXCtrl µÄÏµÍ³×¢²á±íÏî
+// æ·»åŠ æˆ–ç§»é™¤ CSTActiveXCtrl çš„ç³»ç»Ÿæ³¨å†Œè¡¨é¡¹
 
 BOOL CSTActiveXCtrl::CSTActiveXCtrlFactory::UpdateRegistry(BOOL bRegister)
 {
-	// TODO:  ÑéÖ¤ÄúµÄ¿Ø¼şÊÇ·ñ·ûºÏµ¥ÔªÄ£ĞÍÏß³Ì´¦Àí¹æÔò¡£
-	// ÓĞ¹Ø¸ü¶àĞÅÏ¢£¬Çë²Î¿¼ MFC ¼¼ÊõËµÃ÷ 64¡£
-	// Èç¹ûÄúµÄ¿Ø¼ş²»·ûºÏµ¥ÔªÄ£ĞÍ¹æÔò£¬Ôò
-	// ±ØĞëĞŞ¸ÄÈçÏÂ´úÂë£¬½«µÚÁù¸ö²ÎÊı´Ó
-	// afxRegApartmentThreading ¸ÄÎª 0¡£
+	// TODO:  éªŒè¯æ‚¨çš„æ§ä»¶æ˜¯å¦ç¬¦åˆå•å…ƒæ¨¡å‹çº¿ç¨‹å¤„ç†è§„åˆ™ã€‚
+	// æœ‰å…³æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è€ƒ MFC æŠ€æœ¯è¯´æ˜ 64ã€‚
+	// å¦‚æœæ‚¨çš„æ§ä»¶ä¸ç¬¦åˆå•å…ƒæ¨¡å‹è§„åˆ™ï¼Œåˆ™
+	// å¿…é¡»ä¿®æ”¹å¦‚ä¸‹ä»£ç ï¼Œå°†ç¬¬å…­ä¸ªå‚æ•°ä»
+	// afxRegApartmentThreading æ”¹ä¸º 0ã€‚
 
 	if (bRegister)
 		return AfxOleRegisterControlClass(
@@ -127,26 +127,26 @@ BOOL CSTActiveXCtrl::CSTActiveXCtrlFactory::UpdateRegistry(BOOL bRegister)
 }
 
 
-// CSTActiveXCtrl::CSTActiveXCtrl - ¹¹Ôìº¯Êı
+// CSTActiveXCtrl::CSTActiveXCtrl - æ„é€ å‡½æ•°
 
 CSTActiveXCtrl::CSTActiveXCtrl()
 {
 	InitializeIIDs(&IID_DSTActiveX, &IID_DSTActiveXEvents);
-	// TODO:  ÔÚ´Ë³õÊ¼»¯¿Ø¼şµÄÊµÀıÊı¾İ¡£
+	// TODO:  åœ¨æ­¤åˆå§‹åŒ–æ§ä»¶çš„å®ä¾‹æ•°æ®ã€‚
 
-	// Important£ºNeed in activeX control to draw another activeX control
+	// Importantï¼šNeed in activeX control to draw another activeX control
 	AfxEnableControlContainer();
 
 }
 
-// CSTActiveXCtrl::~CSTActiveXCtrl - Îö¹¹º¯Êı
+// CSTActiveXCtrl::~CSTActiveXCtrl - ææ„å‡½æ•°
 
 CSTActiveXCtrl::~CSTActiveXCtrl()
 {
-	// TODO:  ÔÚ´ËÇåÀí¿Ø¼şµÄÊµÀıÊı¾İ¡£
+	// TODO:  åœ¨æ­¤æ¸…ç†æ§ä»¶çš„å®ä¾‹æ•°æ®ã€‚
 }
 
-// CSTActiveXCtrl::OnDraw - »æÍ¼º¯Êı
+// CSTActiveXCtrl::OnDraw - ç»˜å›¾å‡½æ•°
 
 void CSTActiveXCtrl::OnDraw(
 	CDC* pdc, const CRect& rcBounds, const CRect& /* rcInvalid */)
@@ -154,7 +154,7 @@ void CSTActiveXCtrl::OnDraw(
 	if (!pdc)
 		return;
 
-	// TODO:  ÓÃÄú×Ô¼ºµÄ»æÍ¼´úÂëÌæ»»ÏÂÃæµÄ´úÂë¡£
+	// TODO:  ç”¨æ‚¨è‡ªå·±çš„ç»˜å›¾ä»£ç æ›¿æ¢ä¸‹é¢çš„ä»£ç ã€‚
 
 	CRect cRect;
 	this->GetClientRect(&cRect);
@@ -167,57 +167,57 @@ void CSTActiveXCtrl::OnDraw(
 	pdc->Rectangle(lpRect);
 }
 
-// CSTActiveXCtrl::DoPropExchange - ³Ö¾ÃĞÔÖ§³Ö
+// CSTActiveXCtrl::DoPropExchange - æŒä¹…æ€§æ”¯æŒ
 
 void CSTActiveXCtrl::DoPropExchange(CPropExchange* pPX)
 {
 	ExchangeVersion(pPX, MAKELONG(_wVerMinor, _wVerMajor));
 	COleControl::DoPropExchange(pPX);
 
-	// TODO: ÎªÃ¿¸ö³Ö¾ÃµÄ×Ô¶¨ÒåÊôĞÔµ÷ÓÃ PX_ º¯Êı¡£
+	// TODO: ä¸ºæ¯ä¸ªæŒä¹…çš„è‡ªå®šä¹‰å±æ€§è°ƒç”¨ PX_ å‡½æ•°ã€‚
 }
 
 
-// CSTActiveXCtrl::OnResetState - ½«¿Ø¼şÖØÖÃÎªÄ¬ÈÏ×´Ì¬
+// CSTActiveXCtrl::OnResetState - å°†æ§ä»¶é‡ç½®ä¸ºé»˜è®¤çŠ¶æ€
 
 void CSTActiveXCtrl::OnResetState()
 {
-	COleControl::OnResetState();  // ÖØÖÃ DoPropExchange ÖĞÕÒµ½µÄÄ¬ÈÏÖµ
+	COleControl::OnResetState();  // é‡ç½® DoPropExchange ä¸­æ‰¾åˆ°çš„é»˜è®¤å€¼
 
-	// TODO:  ÔÚ´ËÖØÖÃÈÎÒâÆäËû¿Ø¼ş×´Ì¬¡£
+	// TODO:  åœ¨æ­¤é‡ç½®ä»»æ„å…¶ä»–æ§ä»¶çŠ¶æ€ã€‚
 }
 
 
-// CSTActiveXCtrl ÏûÏ¢´¦Àí³ÌĞò
+// CSTActiveXCtrl æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 int CSTActiveXCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (COleControl::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO:  ÔÚ´ËÌí¼ÓÄú×¨ÓÃµÄ´´½¨´úÂë
+	// TODO:  åœ¨æ­¤æ·»åŠ æ‚¨ä¸“ç”¨çš„åˆ›å»ºä»£ç 
 
-// ´´½¨¹¤¾ßÀ¸°´Å¥
+// åˆ›å»ºå·¥å…·æ æŒ‰é’®
 
 	for (int i = 0; i < CSTActiveXCtrl::SBtnCount; i++)
 	{
 		m_btnList[i].Create(TEXT(""), BS_DEFPUSHBUTTON | WS_VISIBLE | WS_CHILD | BS_BITMAP | BS_OWNERDRAW, CRect(32 * i + 1, 0 + 1, 32 * (i + 1) + 1, 32 + 1), this, IDC_BUTTON1 + i);
 		m_btnList[i].LoadBitmaps(IDB_BITMAP1 + i * 2, IDB_BITMAP1 + i * 2 + 1, IDB_BITMAP1 + i * 2, IDB_BITMAP1 + i * 2 + 1);
-		m_btnList[i].SizeToContent();  //Ê¹°´Å¥ÊÊÓ¦Í¼Æ¬´óĞ¡
+		m_btnList[i].SizeToContent();  //ä½¿æŒ‰é’®é€‚åº”å›¾ç‰‡å¤§å°
 		m_btnList[i].ShowWindow(TRUE);
 	}
 
-// ´´½¨ËÑË÷¿ò
+// åˆ›å»ºæœç´¢æ¡†
 
 	LPRECT lpRect = new RECT();
 	this->m_btnList[0].GetClientRect(lpRect);
-	GetDlgItem(IDC_BUTTON1 + this->SBtnCount - 1)->GetWindowRect(lpRect);//»ñÈ¡¿Ø¼ş»ùÓÚÈ«ÆµµÄÎ»ÖÃ
-	ScreenToClient(lpRect);//×ª»»Îª¶Ô»°¿òÉÏµÄÏà¶ÔÎ»ÖÃ
+	GetDlgItem(IDC_BUTTON1 + this->SBtnCount - 1)->GetWindowRect(lpRect);//è·å–æ§ä»¶åŸºäºå…¨é¢‘çš„ä½ç½®
+	ScreenToClient(lpRect);//è½¬æ¢ä¸ºå¯¹è¯æ¡†ä¸Šçš„ç›¸å¯¹ä½ç½®
 	int x = lpRect->right;
 	int y = lpRect->top;
-	m_pEdit = new CSkinEdit();                  // »ùÓÚ2DĞ§¹ûµÄ±à¼­¿ò  
+	m_pEdit = new CSkinEdit();                  // åŸºäº2Dæ•ˆæœçš„ç¼–è¾‘æ¡†  
 	CRect rect;
-	rect.SetRect(x + 10, y + 10, x + 10 + 200, y + 10 + 20); // È·¶¨±à¼­¿òÔÚ¶Ô»°¿òÖĞµÄ³ß´ç´óĞ¡  
+	rect.SetRect(x + 10, y + 10, x + 10 + 200, y + 10 + 20); // ç¡®å®šç¼–è¾‘æ¡†åœ¨å¯¹è¯æ¡†ä¸­çš„å°ºå¯¸å¤§å°  
 	m_pEdit->Create(WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL, rect, this, IDC_EDIT1);
 	this->m_pEdit->ShowWindow(TRUE);
 	//LOGFONT lf;
@@ -226,11 +226,11 @@ int CSTActiveXCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//font.CreateFontIndirect(&lf);
 	static CFont font;
 	font.DeleteObject();
-	font.CreatePointFont(100, _T("ËÎÌå"));
+	font.CreatePointFont(100, _T("å®‹ä½“"));
 	m_pEdit->SetFont(&font);
 	m_pEdit->SetLimitText(MAX_PATH);
 
-// ´´½¨PDFÏÔÊ¾¿Ø¼ş
+// åˆ›å»ºPDFæ˜¾ç¤ºæ§ä»¶
 
 	CRect cRect;
 	this->GetClientRect(&cRect);
@@ -253,7 +253,7 @@ int CSTActiveXCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	GetPrivateProfileStringW(L"UNLOCK", L"unlockCode", L"", unlockCode, MAX_PATH, cfgFile);
 	this->m_foxitPdfSdkCtrl.UnLockActiveX(sn, unlockCode);
 
-	//OpenFile(L"C:\\Users\\72975\\Desktop\\unityÓÎÏ·¿ª·¢Ö¸ÄÏ.pdf", L"C:\\Users\\72975\\OneDrive\\PIC\\SndPdHI2UFZZSHpnMlNaTlkyc0xsbnJncGgvZE9BZXdPUlBLWmp3Nm9VdWNBcllDaHZVNTN3PT0.jpg");
+	//OpenFile(L"C:\\Users\\72975\\Desktop\\unityæ¸¸æˆå¼€å‘æŒ‡å—.pdf", L"C:\\Users\\72975\\OneDrive\\PIC\\SndPdHI2UFZZSHpnMlNaTlkyc0xsbnJncGgvZE9BZXdPUlBLWmp3Nm9VdWNBcllDaHZVNTN3PT0.jpg");
 
 	return 0;
 }
@@ -263,7 +263,7 @@ HBRUSH CSTActiveXCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = COleControl::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO:  ÔÚ´Ë¸ü¸Ä DC µÄÈÎºÎÌØĞÔ
+	// TODO:  åœ¨æ­¤æ›´æ”¹ DC çš„ä»»ä½•ç‰¹æ€§
 	HBRUSH hbrEdit = ::CreateSolidBrush(RGB(0, 0, 0));
 	//if (nCtlColor == CTLCOLOR_STATIC)
 	{
@@ -274,14 +274,14 @@ HBRUSH CSTActiveXCtrl::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 			return hbrEdit;
 		}
 	}
-	// TODO:  Èç¹ûÄ¬ÈÏµÄ²»ÊÇËùĞè»­±Ê£¬Ôò·µ»ØÁíÒ»¸ö»­±Ê
+	// TODO:  å¦‚æœé»˜è®¤çš„ä¸æ˜¯æ‰€éœ€ç”»ç¬”ï¼Œåˆ™è¿”å›å¦ä¸€ä¸ªç”»ç¬”
 	return hbr;
 }
 void CSTActiveXCtrl::OnSize(UINT nType, int cx, int cy)
 {
 	COleControl::OnSize(nType, cx, cy);
 	
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 
 	CRect cRect;
 	this->GetWindowRect(&cRect);
@@ -289,22 +289,22 @@ void CSTActiveXCtrl::OnSize(UINT nType, int cx, int cy)
 	int height = cRect.bottom - cRect.top - 39;
 	this->m_foxitPdfSdkCtrl.MoveWindow(CRect(1, 39, width + 1, height + 39 - 1));
 }
-/// ÆÁ±ÎÍ¼Æ¬µÄË«»÷ÊÂ¼ş
+/// å±è”½å›¾ç‰‡çš„åŒå‡»äº‹ä»¶
 void CSTActiveXCtrl::OnDbClickExFoxitpdfsdkproctrl1(long hWnd, long ClientX, long ClientY, BOOL* bRet)
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 	*bRet = TRUE;
 }
-/// ÊÓÍ¼´óĞ¡¸Ä±äÊÂ¼ş£¬Í¬²½ĞŞ¸ÄÇ©Ãû³ß´ç
+/// è§†å›¾å¤§å°æ”¹å˜äº‹ä»¶ï¼ŒåŒæ­¥ä¿®æ”¹ç­¾åå°ºå¯¸
 void CSTActiveXCtrl::OnZoomChangeFoxitpdfsdkproctrl1()
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 	this->SetSignImgs();
 }
-/// ¿ØÖÆ±à¼­¿òÉ¾³ıÓÃ»§
+/// æ§åˆ¶ç¼–è¾‘æ¡†åˆ é™¤ç”¨æˆ·
 BOOL CSTActiveXCtrl::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 	if (WM_KEYDOWN == pMsg->message/* && this->m_pEdit->GetSafeHwnd() == ::GetFocus()*/)
 	{
 		CString sFind;
@@ -327,92 +327,92 @@ BOOL CSTActiveXCtrl::PreTranslateMessage(MSG* pMsg)
 
 	return COleControl::PreTranslateMessage(pMsg);
 }
-/// Ê×Ò³
+/// é¦–é¡µ
 void CSTActiveXCtrl::OnButton1_Click()
 {
 	this->m_foxitPdfSdkCtrl.GoToPage(0);
 }
-/// ÉÏÒ»Ò³
+/// ä¸Šä¸€é¡µ
 void CSTActiveXCtrl::OnButton2_Click()
 {
 	this->m_foxitPdfSdkCtrl.GoToPrevPage();
 }
-/// ÏÂÒ»Ò³
+/// ä¸‹ä¸€é¡µ
 void CSTActiveXCtrl::OnButton3_Click()
 {
 	this->m_foxitPdfSdkCtrl.GoToNextPage();
 }
-/// Î²Ò³
+/// å°¾é¡µ
 void CSTActiveXCtrl::OnButton4_Click()
 {
 	int pageCount = this->m_foxitPdfSdkCtrl.GetPageCount();
 	this->m_foxitPdfSdkCtrl.GoToPage(pageCount - 1);
 }
-/// ÉÏÒ»ÊÓÍ¼
+/// ä¸Šä¸€è§†å›¾
 void CSTActiveXCtrl::OnButton5_Click()
 {
 	this->m_foxitPdfSdkCtrl.GoBackwardStack();
 }
-/// ÏÂÒ»ÊÓÍ¼
+/// ä¸‹ä¸€è§†å›¾
 void CSTActiveXCtrl::OnButton6_Click()
 {
 	this->m_foxitPdfSdkCtrl.GoForwardStack();
 }
-/// Ë³Ê±ÕëĞı×ª
+/// é¡ºæ—¶é’ˆæ—‹è½¬
 void CSTActiveXCtrl::OnButton7_Click()
 {
 	short cur = this->m_foxitPdfSdkCtrl.GetRotate();
 	this->m_foxitPdfSdkCtrl.SetRotate((short)((cur + 1) % 4));
 }
-/// ÄæÊ±ÕëĞı×ª
+/// é€†æ—¶é’ˆæ—‹è½¬
 void CSTActiveXCtrl::OnButton8_Click()
 {
 	short cur = this->m_foxitPdfSdkCtrl.GetRotate();
 	this->m_foxitPdfSdkCtrl.SetRotate((short)((cur + 4 - 1) % 4));
 }
-/// ·Å´ó
+/// æ”¾å¤§
 void CSTActiveXCtrl::OnButton9_Click()
 {
 	int zoomLevel = this->m_foxitPdfSdkCtrl.GetZoomLevel();
 	this->m_foxitPdfSdkCtrl.SetZoomLevel(zoomLevel * 2);
 }
-/// ËõĞ¡
+/// ç¼©å°
 void CSTActiveXCtrl::OnButton10_Click()
 {
 	int zoomLevel = this->m_foxitPdfSdkCtrl.GetZoomLevel();
 	this->m_foxitPdfSdkCtrl.SetZoomLevel(zoomLevel / 2);
 }
-/// ·Å´ó¹¤¾ß
+/// æ”¾å¤§å·¥å…·
 void CSTActiveXCtrl::OnButton11_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetCurrentTool(L"ZoomIn Tool");
 }
-/// ËõĞ¡¹¤¾ß
+/// ç¼©å°å·¥å…·
 void CSTActiveXCtrl::OnButton12_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetCurrentTool(L"ZoomOut Tool");
 }
-/// ÊÖĞÍ¹¤¾ß
+/// æ‰‹å‹å·¥å…·
 void CSTActiveXCtrl::OnButton13_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetCurrentTool(L"Hand Tool");
 }
-/// Êµ¼Ê´óĞ¡
+/// å®é™…å¤§å°
 void CSTActiveXCtrl::OnButton14_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetZoomLevel(0);
 }
-/// ÊÊÓ¦Ò³Ãæ
+/// é€‚åº”é¡µé¢
 void CSTActiveXCtrl::OnButton15_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetZoomLevel(1);
 }
-/// ÊÊÓ¦Ò³¿í
+/// é€‚åº”é¡µå®½
 void CSTActiveXCtrl::OnButton16_Click()
 {
 	this->m_foxitPdfSdkCtrl.SetZoomLevel(2);
 }
-/// ËÑË÷
+/// æœç´¢
 void CSTActiveXCtrl::OnButton17_Click()
 {
 	CString sFind;
@@ -429,29 +429,29 @@ BOOL CSTActiveXCtrl::LoadImageFromResource(ATL::CImage *pImage, UINT nResID, LPC
 		return false;
 	}
 	pImage->Destroy();
-	// ²éÕÒ×ÊÔ´
+	// æŸ¥æ‰¾èµ„æº
 	HRSRC hRsrc = ::FindResource(AfxGetResourceHandle(), MAKEINTRESOURCE(nResID), lpTyp);
 	if (hRsrc == NULL)
 	{
 		return false;
 	}
-	// ¼ÓÔØ×ÊÔ´
+	// åŠ è½½èµ„æº
 	HGLOBAL hImgData = ::LoadResource(AfxGetResourceHandle(), hRsrc);
 	if (hImgData == NULL)
 	{
 		::FreeResource(hImgData);
 		return false;
 	}
-	// Ëø¶¨ÄÚ´æÖĞµÄÖ¸¶¨×ÊÔ´
+	// é”å®šå†…å­˜ä¸­çš„æŒ‡å®šèµ„æº
 	LPVOID lpVoid = ::LockResource(hImgData);
 	LPSTREAM pStream = NULL;
 	DWORD dwSize = ::SizeofResource(AfxGetResourceHandle(), hRsrc);
 	HGLOBAL hNew = ::GlobalAlloc(GHND, dwSize);
 	LPBYTE lpByte = (LPBYTE)::GlobalLock(hNew);
 	::memcpy(lpByte, lpVoid, dwSize);
-	// ½â³ıÄÚ´æÖĞµÄÖ¸¶¨×ÊÔ´
+	// è§£é™¤å†…å­˜ä¸­çš„æŒ‡å®šèµ„æº
 	::GlobalUnlock(hNew);
-	// ´ÓÖ¸¶¨ÄÚ´æ´´½¨Á÷¶ÔÏó
+	// ä»æŒ‡å®šå†…å­˜åˆ›å»ºæµå¯¹è±¡
 	HRESULT ht = ::CreateStreamOnHGlobal(hNew, TRUE, &pStream);
 	if (ht != S_OK)
 	{
@@ -459,11 +459,11 @@ BOOL CSTActiveXCtrl::LoadImageFromResource(ATL::CImage *pImage, UINT nResID, LPC
 	}
 	else
 	{
-		// ¼ÓÔØÍ¼Æ¬
+		// åŠ è½½å›¾ç‰‡
 		pImage->Load(pStream);
 		GlobalFree(hNew);
 	}
-	// ÊÍ·Å×ÊÔ´
+	// é‡Šæ”¾èµ„æº
 	::FreeResource(hImgData);
 	return true;
 }
@@ -508,7 +508,7 @@ BOOL CSTActiveXCtrl::ImageFromIDResource(UINT nID, LPCTSTR sTR, Gdiplus::Image *
 //	//if (hDesBmp == nullptr)
 //	//{
 //	//	CString msg;
-//	//	msg.Format(L"CreateCompatibleBitmapÊ§°Ü£ºhDesBmp");
+//	//	msg.Format(L"CreateCompatibleBitmapå¤±è´¥ï¼šhDesBmp");
 //	//	MessageBox(msg);
 //	//	return false;
 //	//}
@@ -523,14 +523,14 @@ BOOL CSTActiveXCtrl::ImageFromIDResource(UINT nID, LPCTSTR sTR, Gdiplus::Image *
 //		if (image.IsNull())
 //		{
 //			CString msg;
-//			msg.Format(L"LoadBitmapÊ§°Ü£ºµÚ%dÕÅÍ¼Æ¬", i);
+//			msg.Format(L"LoadBitmapå¤±è´¥ï¼šç¬¬%då¼ å›¾ç‰‡", i);
 //			MessageBox(msg);
 //			return false;
 //		}
 //		
-//		MessageBox(L"LoadBitmap³É¹¦");
+//		MessageBox(L"LoadBitmapæˆåŠŸ");
 //
-//		if (image.GetBPP() == 32) //È·ÈÏ¸ÃÍ¼Ïñ°üº¬AlphaÍ¨µÀ
+//		if (image.GetBPP() == 32) //ç¡®è®¤è¯¥å›¾åƒåŒ…å«Alphaé€šé“
 //		{
 //			for (int j = 0; j < image.GetWidth(); j++)
 //			{
@@ -553,15 +553,15 @@ BOOL CSTActiveXCtrl::ImageFromIDResource(UINT nID, LPCTSTR sTR, Gdiplus::Image *
 //		//if (hSrcBmp == nullptr)
 //		//{
 //		//	CString msg;
-//		//	msg.Format(L"LoadBitmapÊ§°Ü£ºµÚ%dÕÅÍ¼Æ¬", i);
+//		//	msg.Format(L"LoadBitmapå¤±è´¥ï¼šç¬¬%då¼ å›¾ç‰‡", i);
 //		//	MessageBox(msg);
 //		//	return false;
 //		//}
 //		//imgList.push_back(hSrcBmp);
 //		//CBitmap bitmap;
-//		//bitmap.Attach(hSrcBmp);	//¹ØÁªÎ»Í¼¶ÔÏó
+//		//bitmap.Attach(hSrcBmp);	//å…³è”ä½å›¾å¯¹è±¡
 //		//BITMAP bmp;
-//		//bitmap.GetBitmap(&bmp);	//»ñÈ¡Î»Í¼ĞÅÏ¢
+//		//bitmap.GetBitmap(&bmp);	//è·å–ä½å›¾ä¿¡æ¯
 //		//int destWidth = 0;
 //		//int destHeight = CSTActiveXCtrl::SSignSize;
 //		//int srWidth = bmp.bmWidth;
@@ -624,7 +624,7 @@ BOOL CSTActiveXCtrl::ImageFromIDResource(UINT nID, LPCTSTR sTR, Gdiplus::Image *
 //	//if (FAILED(hResult))
 //	//{
 //	//	CString msg;
-//	//	msg.Format(L"±£´æÍ¼Æ¬Ê§°Ü");
+//	//	msg.Format(L"ä¿å­˜å›¾ç‰‡å¤±è´¥");
 //	//	MessageBox(msg);
 //	//	return false;
 //	//}
@@ -653,8 +653,12 @@ BOOL CSTActiveXCtrl::GenerateDateImage()
 	//HRESULT hResult = pGetRes.CoCreateInstance(clsid);
 	//HRESULT hResult = CoCreateInstance(clsid, NULL, CLSCTX_ALL, __uuidof(IDatePngGenerator), (LPVOID*)&pGetRes);
 	IClassFactory* p_classfactory;
-	CoGetClassObject(clsid, CLSCTX_ALL, NULL, IID_IClassFactory, (LPVOID*)&p_classfactory);
-	HRESULT hResult = p_classfactory->CreateInstance(NULL, __uuidof(IDatePngGenerator), (LPVOID*)&pGetRes);
+	HRESULT hResult = CoGetClassObject(clsid, CLSCTX_ALL, NULL, IID_IClassFactory, (LPVOID*)&p_classfactory);
+	
+	if (hResult != S_OK)
+		return false;
+	
+	hResult = p_classfactory->CreateInstance(NULL, __uuidof(IDatePngGenerator), (LPVOID*)&pGetRes);
 
 	if (hResult != S_OK)
 		return false;
@@ -673,7 +677,7 @@ Gdiplus::Image* CSTActiveXCtrl::LoadImageEx(LPCTSTR pszFileName)
 	CFile file;
 	DWORD dwSize;
 
-	// ´ò¿ªÎÄ¼ş  
+	// æ‰“å¼€æ–‡ä»¶  
 	if (!file.Open(pszFileName,
 		CFile::modeRead /*|
 		CFile::shareDenyWrite*/))
@@ -682,7 +686,7 @@ Gdiplus::Image* CSTActiveXCtrl::LoadImageEx(LPCTSTR pszFileName)
 		return FALSE;
 	};
 
-	// ¸ù¾İÎÄ¼ş´óĞ¡·ÖÅäHGLOBALÄÚ´æ  
+	// æ ¹æ®æ–‡ä»¶å¤§å°åˆ†é…HGLOBALå†…å­˜  
 	dwSize = (DWORD)file.GetLength();
 	HGLOBAL hGlobal = GlobalAlloc(GMEM_MOVEABLE | GMEM_NODISCARD, dwSize);
 	if (!hGlobal)
@@ -699,7 +703,7 @@ Gdiplus::Image* CSTActiveXCtrl::LoadImageEx(LPCTSTR pszFileName)
 		return FALSE;
 	};
 
-	// ½«ÎÄ¼şÄÚÈİ¶Áµ½HGLOBALÄÚ´æÖĞ  
+	// å°†æ–‡ä»¶å†…å®¹è¯»åˆ°HGLOBALå†…å­˜ä¸­  
 	TRY
 	{
 		file.Read(pData, dwSize);
@@ -718,7 +722,7 @@ Gdiplus::Image* CSTActiveXCtrl::LoadImageEx(LPCTSTR pszFileName)
 	GlobalUnlock(hGlobal);
 	file.Close();
 
-	// ÀûÓÃhGlobalÄÚ´æÖĞµÄÊı¾İ´´½¨stream  
+	// åˆ©ç”¨hGlobalå†…å­˜ä¸­çš„æ•°æ®åˆ›å»ºstream  
 	IStream *pStream = NULL;
 	if (CreateStreamOnHGlobal(hGlobal, TRUE, &pStream) != S_OK)
 	{
@@ -728,19 +732,19 @@ Gdiplus::Image* CSTActiveXCtrl::LoadImageEx(LPCTSTR pszFileName)
 	Gdiplus::Image *pImage = Gdiplus::Image::FromStream(pStream);
 	ASSERT(pImage != NULL);
 
-		// Òª¼ÓÉÏÕâÒ»¾ä£¬·ñÔòÓÉGlobalAllocµÃÀ´µÄhGlobalÄÚ´æÃ»ÓĞ±»ÊÍ·Å£¬µ¼ÖÂÄÚ´æĞ¹Â¶£¬ÓÉÓÚ  
-		// CreateStreamOnHGlobalµÚ¶ş¸ö²ÎÊı±»ÉèÖÃÎªTRUE£¬ËùÒÔµ÷ÓÃpStream->Release()»á×Ô¶¯  
-		// ½«hGlobalÄÚ´æ£¨²Î¼ûmsdn¶ÔCreateStreamOnHGlobalµÄËµÃ÷£©  
+		// è¦åŠ ä¸Šè¿™ä¸€å¥ï¼Œå¦åˆ™ç”±GlobalAllocå¾—æ¥çš„hGlobalå†…å­˜æ²¡æœ‰è¢«é‡Šæ”¾ï¼Œå¯¼è‡´å†…å­˜æ³„éœ²ï¼Œç”±äº  
+		// CreateStreamOnHGlobalç¬¬äºŒä¸ªå‚æ•°è¢«è®¾ç½®ä¸ºTRUEï¼Œæ‰€ä»¥è°ƒç”¨pStream->Release()ä¼šè‡ªåŠ¨  
+		// å°†hGlobalå†…å­˜ï¼ˆå‚è§msdnå¯¹CreateStreamOnHGlobalçš„è¯´æ˜ï¼‰  
 	pStream->Release();
 	
 	return pImage;
 }
 BOOL CSTActiveXCtrl::SetSignImgs()
 {
-	// ×¢Òâ£ºÔ­Ê¼Í¼Æ¬ÊÇÓĞ´óĞ¡µÄ£¬ÕâÀïÉèÖÃµÄ´óĞ¡ĞèÒªºÍÔ­Ê¼Í¼Æ¬×öµÈ±ÈËõ·Å£¬²»È»Í¼Æ¬»á±äĞÎ
+	// æ³¨æ„ï¼šåŸå§‹å›¾ç‰‡æ˜¯æœ‰å¤§å°çš„ï¼Œè¿™é‡Œè®¾ç½®çš„å¤§å°éœ€è¦å’ŒåŸå§‹å›¾ç‰‡åšç­‰æ¯”ç¼©æ”¾ï¼Œä¸ç„¶å›¾ç‰‡ä¼šå˜å½¢
 	double zoomLevel = (double)this->m_foxitPdfSdkCtrl.GetZoomLevel() / 100;
 
-	// ÉèÖÃÇ©ÃûÍ¼Â·¾¶¼°¿í¸ß
+	// è®¾ç½®ç­¾åå›¾è·¯å¾„åŠå®½é«˜
 	CString csSignedImagePath = this->m_ImgPath;
 	//Image *imgSignedImage = Image::FromFile(csSignedImagePath);
 	Image *imgSignedImage = this->LoadImageEx(csSignedImagePath);  // Image::FromFile(csSignedImagePath);
@@ -751,7 +755,7 @@ BOOL CSTActiveXCtrl::SetSignImgs()
 		(int)((double)imgSignedImage->GetWidth() / (double)imgSignedImage->GetHeight() * (double)nSignedImageHeight);
 	this->m_foxitPdfSdkCtrl.SetSignedImageParams(csSignedImagePath, nSignedImageWidth, nSignedImageHeight);
 
-	// ÉèÖÃÈÕÆÚÍ¼Â·¾¶¼°¿í¸ß
+	// è®¾ç½®æ—¥æœŸå›¾è·¯å¾„åŠå®½é«˜
 	CString csDateImagePath = _T("_Date.jpg");
 	ULONG uLength = MAX_PATH;
 	WCHAR wPath[MAX_PATH];
@@ -763,7 +767,7 @@ BOOL CSTActiveXCtrl::SetSignImgs()
 	int nDateImageHeight = (int)((double)CSTActiveXCtrl::SSignSize * zoomLevel);
 	int nDateImageWidth =
 		(int)((double)imgDateImage->GetWidth() / (double)imgDateImage->GetHeight() * (double)nDateImageHeight
-			* 0.8);		/*ÈÕÆÚÍ¼Æ¬¿í¶ÈĞèÒªÊÊµ±Ëõ·Å£¬ÏÔÊ¾¸ü½ô´ÕÒ»µã*/
+			* 0.8);		/*æ—¥æœŸå›¾ç‰‡å®½åº¦éœ€è¦é€‚å½“ç¼©æ”¾ï¼Œæ˜¾ç¤ºæ›´ç´§å‡‘ä¸€ç‚¹*/
 	this->m_foxitPdfSdkCtrl.SetDateImageParams(csDateImagePath, nDateImageWidth, nDateImageHeight);
 
 	return TRUE;
@@ -774,29 +778,29 @@ BSTR CSTActiveXCtrl::OpenFile(LPCTSTR pdfPath, LPCTSTR imgPath)
 	CString strResult;
 
 	// TODO: Add your dispatch handler code here
-	while (1)	// gotoÓï¾ä
+	while (1)	// gotoè¯­å¥
 	{
 		this->m_PdfPath = pdfPath;
 		this->m_ImgPath = imgPath;
 		USES_CONVERSION;
 		if ((_access(W2A(pdfPath), 0x06)) == -1 || (_access(W2A(imgPath), 0x02)) == -1)
 		{
-			strResult = _T("¸ø¶¨ÎÄ¼ş²»´æÔÚ»òÕß²»¾ß±¸¶ÁĞ´·ÃÎÊÈ¨ÏŞ");
+			strResult = _T("ç»™å®šæ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…ä¸å…·å¤‡è¯»å†™è®¿é—®æƒé™");
 			break;
 		}
 		if (!this->m_foxitPdfSdkCtrl.OpenFile(pdfPath, _T("")))
 		{
-			strResult = _T("´ò¿ªPDFÎÄ¼şÊ§°Ü");
+			strResult = _T("æ‰“å¼€PDFæ–‡ä»¶å¤±è´¥");
 			break;
 		}
 		if (!this->GenerateDateImage())
 		{
-			strResult = _T("Éú³ÉÇ©ÃûÈÕÆÚÍ¼Æ¬Ê§°Ü");
+			strResult = _T("ç”Ÿæˆç­¾åæ—¥æœŸå›¾ç‰‡å¤±è´¥");
 			break;
 		}
 		if (!this->SetSignImgs())
 		{
-			strResult = _T("ÉèÖÃÇ©ÃûÍ¼Æ¬²ÎÊıÊ§°Ü");
+			strResult = _T("è®¾ç½®ç­¾åå›¾ç‰‡å‚æ•°å¤±è´¥");
 			break;
 		}
 
@@ -813,7 +817,7 @@ BSTR CSTActiveXCtrl::Pass(void)
 
 	// TODO: Add your dispatch handler code here
 	try {
-		while (1)	// gotoÓï¾ä
+		while (1)	// gotoè¯­å¥
 		{
 			CString strTmpPdfPath = m_PdfPath;
 			strTmpPdfPath.MakeUpper();
@@ -821,13 +825,13 @@ BSTR CSTActiveXCtrl::Pass(void)
 
 			if (!this->m_foxitPdfSdkCtrl.IsSDImageExist())
 			{
-				strResult = _T("Î´¼ì²âµ½Ç©Ãû");
+				strResult = _T("æœªæ£€æµ‹åˆ°ç­¾å");
 				break;
 			}
 			else {
 				if (!this->m_foxitPdfSdkCtrl.ComposeImageAndSaveAs(strTmpPdfPath))
 				{
-					strResult = _T("±£´æÁÙÊ±ÎÄµµÊ§°Ü");
+					strResult = _T("ä¿å­˜ä¸´æ—¶æ–‡æ¡£å¤±è´¥");
 					break;
 				}
 
@@ -844,7 +848,7 @@ BSTR CSTActiveXCtrl::Pass(void)
 					::Sleep(100);
 				}
 				if (!isSuccess)
-					strResult = _T("±£´æÁÙÊ±ÎÄµµµ½Ä¿±êÎÄµµÊ§°Ü");
+					strResult = _T("ä¿å­˜ä¸´æ—¶æ–‡æ¡£åˆ°ç›®æ ‡æ–‡æ¡£å¤±è´¥");
 				else
 					strResult = _T("0");
 			}
@@ -854,7 +858,7 @@ BSTR CSTActiveXCtrl::Pass(void)
 	}
 	catch (...)
 	{
-		strResult = _T("±£´æ·¢ÉúÒì³£");
+		strResult = _T("ä¿å­˜å‘ç”Ÿå¼‚å¸¸");
 	}
 
 	return strResult.AllocSysString();
